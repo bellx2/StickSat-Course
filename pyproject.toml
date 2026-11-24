@@ -1,0 +1,12 @@
+# 攻撃スクリプト（attacks/）を動かすための Python 環境。uv で作る
+[project]
+name = "flatsat-geek-course"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "pyserial>=3.5",
+    "pycryptodome>=3.20",
+]
+
+[tool.uv]
+package = false

@@ -49,11 +49,12 @@ AI アシスタントを使うことを前提にしています。使い方は [
 
 ## 元のプロジェクト
 
-- [Pwnsat/FlatSat](https://github.com/Pwnsat/FlatSat)（astrobyte / Cromulence / Hack-A-Sat、GPL-2.0-or-later）
-- [r0r0x-xx/JP-Bootcamp](https://github.com/r0r0x-xx/JP-Bootcamp) とその日本語 fork
-- [FlatSat-Geek](https://github.com/bellx2/FlatSat-Geek)（RP2350-GEEK 向けファームウェア）
-
-詳しくは [NOTICE.md](NOTICE.md) を参照してください。
+| プロジェクト | ライセンス | 関係 |
+|---|---|---|
+| [Pwnsat/FlatSat](https://github.com/Pwnsat/FlatSat)（astrobyte / Cromulence / Hack-A-Sat） | GPL-2.0-or-later | 元の脆弱な衛星模擬機・攻撃スクリプト |
+| [r0r0x-xx/JP-Bootcamp](https://github.com/r0r0x-xx/JP-Bootcamp) | `firmware/` は GPL-2.0-or-later、`c3/` は MIT（一部 GPL-3.0）、その他は GPL-3.0-or-later | 2 日間の講座・攻撃スクリプト・Space IDS |
+| [bellx2/JP-Bootcamp](https://github.com/bellx2/JP-Bootcamp) | 上と同じ | 上の日本語化 fork（README とドキュメントのみ翻訳） |
+| [bellx2/FlatSat-Geek](https://github.com/bellx2/FlatSat-Geek) | GPL-2.0-or-later | RP2350-GEEK 向けファームウェア |
 
 ## ライセンス
 
@@ -66,5 +67,5 @@ AI アシスタントを使うことを前提にしています。使い方は [
 | 補助スクリプト（`tools/`） | GPL-3.0-or-later（`attacks/lib` を使うため） |
 
 - 文章を再利用するときは、出典（このリポジトリ）を示し、同じ CC BY-SA 4.0 で公開してください。
-- 元のプロジェクトとそのライセンスは [NOTICE.md](NOTICE.md) にあります。
+- 元のプロジェクトとそのライセンスは、上の「元のプロジェクト」にあります。
 - 詳しくは [LICENSE](LICENSE) を参照してください。

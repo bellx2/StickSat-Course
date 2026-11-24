@@ -5,7 +5,7 @@
 ## 1. ボードを用意する
 
 - FlatSat-Geek（書き込み済みのボード）をそのまま使う。
-- 自分で書き込む場合は、[FlatSat-Geek のリリース](https://github.com/bellx2/FlatSat-Geek/releases) の UF2 を、BOOT ボタンを押しながら USB 接続して現れるドライブにコピーする。
+- 自分で書き込む場合は、[FlatSat-Geek のリリース](https://github.com/bellx2/FlatSat-Geek/releases) の UF2（ボードに書き込むファームウェアのファイル）を、BOOT ボタンを押しながら USB 接続して現れるドライブにコピーする。
   - ステップ 4 で使う位置の上書き命令（`GPS_OVERRIDE`）は、RP2350-GEEK 向けのビルドに含まれている。
   - ステップ 6 でスコアボードの `AES CFG` が点くのは、v1.2.1 以降。それより前のバージョンでは点かない（攻撃そのものは成立する）。
 
@@ -22,7 +22,7 @@
 
 ### macOS
 
-Homebrew と mise が入っていて、シェルで mise が有効になっている場合は、次を実行します。
+Homebrew と mise（Python などの開発ツールの版をそろえる道具）が入っていて、シェルで mise が有効になっている場合は、次を実行します。
 
     git clone https://github.com/bellx2/JP-Bootcamp.git
     cd JP-Bootcamp
@@ -38,7 +38,7 @@ Homebrew と mise が入っていて、シェルで mise が有効になって�
     cd JP-Bootcamp
     ./install.sh
 
-- そのあと、**一度ログアウトして再ログイン**する（シリアルポートを開くための `dialout` グループへの追加を反映するため）。
+- そのあと、**一度ログアウトして再ログイン**する（`install.sh` が、ユーザーを `dialout` グループに追加するため。`dialout` は、Ubuntu でシリアルポートを開ける権限を持つグループ）。
 - `install.sh` の中身を読んでから実行したい場合は、JP-Bootcamp の `docs/01-ubuntu-setup.md` に同じ処理が手作業の手順として書いてある。
 
 ### 攻撃スクリプトの環境（uv）

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
 """地上局とのハンドシェイクを始められるかを確かめる（段階 4 の手順 3）。
 
 GS_ACCESS を 1 回送り、ボードの返事を表示するだけ。チャレンジには答えないので、

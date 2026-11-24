@@ -1,0 +1,19 @@
+FlatSat-Geek-Course
+Copyright (C) 2026 Ryu Tanabe
+
+This repository contains material under two licences.
+
+1. Course text -- CC BY-SA 4.0
+   stages/, docs/, README.md, AGENTS.md, NOTICE.md, CHANGELOG.md
+   Creative Commons Attribution-ShareAlike 4.0 International.
+   Full text: LICENSES/CC-BY-SA-4.0.txt
+   https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+2. Scripts -- GPL-3.0-or-later
+   attacks/  Copied from JP-Bootcamp, Copyright (C) 2026 Starsec.
+             See attacks/NOTICE.md for the source and the changes made.
+   tools/    Uses attacks/lib, so it is distributed under the same licence.
+   Full text: attacks/LICENSE (GNU General Public License v3)
+
+Files not listed above (pyproject.toml, uv.lock, .gitignore) are
+configuration and are provided under the same terms as the scripts.

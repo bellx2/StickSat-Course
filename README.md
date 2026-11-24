@@ -57,6 +57,14 @@ AI アシスタントを使うことを前提にしています。使い方は [
 
 ## ライセンス
 
-TODO: 決める前に NOTICE.md の確認事項を読むこと。
+このリポジトリは、部分ごとにライセンスが異なります。
 
-`attacks/` は GPL-3.0-or-later です（[attacks/LICENSE](attacks/LICENSE)）。`tools/` も `attacks/lib` を import するため、GPL-3.0-or-later として扱います。
+| 対象 | ライセンス |
+|---|---|
+| 演習の文章（`stages/`、`docs/`、`README.md`、`AGENTS.md`） | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ja) |
+| 攻撃スクリプト（`attacks/`） | GPL-3.0-or-later（JP-Bootcamp からの同梱。[attacks/NOTICE.md](attacks/NOTICE.md)） |
+| 補助スクリプト（`tools/`） | GPL-3.0-or-later（`attacks/lib` を使うため） |
+
+- 文章を再利用するときは、出典（このリポジトリ）を示し、同じ CC BY-SA 4.0 で公開してください。
+- 元のプロジェクトとそのライセンスは [NOTICE.md](NOTICE.md) にあります。
+- 詳しくは [LICENSE](LICENSE) を参照してください。

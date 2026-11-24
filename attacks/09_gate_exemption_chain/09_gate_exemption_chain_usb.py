@@ -1,31 +1,31 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#
-# 09_gate_exemption_chain_usb.py -- ゲートがわざと通すように作られている
-# コマンドを使って、コマンドゲート（コマンドを通すか判定する関門）を通り抜ける。
-#
-# 地上局モードがオンのとき、ゲートはほとんどすべてのコマンドを拒否する。
-# ただし「ほとんど」である:
-#
-#     worker.cpp, groundStationCommandAllowed():
-#       if (apid == SPP_APID_TC_DEBUG_CONFIG || apid == SPP_APID_TC_GS_ACCESS) {
-#           return true;                   // 除外対象。無条件で通す
-#       }
-#       ...
-#       if (gs_disable_request && source == COMMAND_SOURCE_USB &&
-#           mission_ctx.usbDebugEnabled) {
-#           return true;                   // さらにデバッグ有効の USB からはゲートをオフにできる
-#       }
-#
-# どの手順も、単独ではレビューを通る。除外は意図的なもので、文書にも書かれている。
-# トラブルを抱えた衛星でもデバッグできる状態を保つ必要があるからだ。欠陥は、
-# 手順を組み合わせた結果にある。除外されたコマンド（DEBUG_CONFIG）がデバッグ有効という状態を
-# 作り、その状態だとゲートを切れてしまう。そのゲートこそが他のすべてを守っていた。
-#
-# この講座で初めての、単発ではなく連鎖（チェーン）による攻撃である。教訓は、
-# 除外リストそのものが攻撃対象領域（攻撃者が突ける入口）になるということだ。
-#
-# 期待される結果: まったく同じコマンドが、数分のうちに、拒否から受け付けに変わる。
+"""09_gate_exemption_chain_usb.py -- ゲートがわざと通すように作られている
+コマンドを使って、コマンドゲート（コマンドを通すか判定する関門）を通り抜ける。
+
+地上局モードがオンのとき、ゲートはほとんどすべてのコマンドを拒否する。
+ただし「ほとんど」である:
+
+    worker.cpp, groundStationCommandAllowed():
+      if (apid == SPP_APID_TC_DEBUG_CONFIG || apid == SPP_APID_TC_GS_ACCESS) {
+          return true;                   // 除外対象。無条件で通す
+      }
+      ...
+      if (gs_disable_request && source == COMMAND_SOURCE_USB &&
+          mission_ctx.usbDebugEnabled) {
+          return true;                   // さらにデバッグ有効の USB からはゲートをオフにできる
+      }
+
+どの手順も、単独ではレビューを通る。除外は意図的なもので、文書にも書かれている。
+トラブルを抱えた衛星でもデバッグできる状態を保つ必要があるからだ。欠陥は、
+手順を組み合わせた結果にある。除外されたコマンド（DEBUG_CONFIG）がデバッグ有効という状態を
+作り、その状態だとゲートを切れてしまう。そのゲートこそが他のすべてを守っていた。
+
+この講座で初めての、単発ではなく連鎖（チェーン）による攻撃である。教訓は、
+除外リストそのものが攻撃対象領域（攻撃者が突ける入口）になるということだ。
+
+期待される結果: まったく同じコマンドが、数分のうちに、拒否から受け付けに変わる。
+"""
 
 import argparse
 import sys

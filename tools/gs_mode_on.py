@@ -5,6 +5,7 @@
 GS_MODE に 1 を送る。成功すると何も表示せず、ボードの画面に `GS ON` が出る。
 拒否されたときだけ `ERROR:` と理由を表示する。元に戻すには attacks/lib/reset_bench.py を使う。
 """
+import argparse
 import sys
 from pathlib import Path
 
@@ -13,6 +14,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "attacks" / "lib"))
 
 from benchstate import next_seq  # noqa: E402
 from flatsat import FlatSat, TC_GS_MODE  # noqa: E402
+
+# --help のときは説明を表示して終わり、ボードには何も送らない
+argparse.ArgumentParser(description=__doc__,
+                        formatter_class=argparse.RawDescriptionHelpFormatter).parse_args()
 
 with FlatSat(verbose=False) as f:
     # シーケンス番号を毎回変え、同じフレームの再送（リプレイ）と誤検知されないようにする

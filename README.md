@@ -7,6 +7,23 @@ USB でつなぐ衛星セキュリティ演習ボード **FlatSat-Geek**（RP235
 衛星の通信システムを題材に、**自分が所有するボード**で動く、意図的に脆弱に作った衛星の模擬機（ファームウェア）を攻撃し、
 「なぜ成立したか」と「どう直すか」までを学びます。全ステップ USB だけで完結し、電波は一切送信しません。
 
+## はじめかた
+
+このリポジトリを取得し、**そのフォルダで** AI アシスタントを起動します。
+
+    git clone https://github.com/bellx2/FlatSat-Geek-Course.git
+    cd FlatSat-Geek-Course
+    claude        # Claude Code の場合。Codex なら codex
+
+起動したら、次のように頼みます。
+
+> 初めて使います。セットアップから手伝ってください。
+
+- AI は、PC の OS、ボードが手元にあるか、センサー（IDS）を使うかを尋ねてから、[docs/00-start.md](docs/00-start.md) の順に 1 手順ずつ進めます。ほかに使うリポジトリ（JP-Bootcamp、FlatSat-Geek）の取得も、その中で案内します。
+- 必ずこのフォルダで起動してください。AI は起動したフォルダの `AGENTS.md`（Claude Code は `CLAUDE.md`）を読み、家庭教師としての振る舞い方を知ります。別のフォルダで起動して URL を渡すだけでは、この指示が読み込まれないことがあります。
+- Claude Code や Codex のインストール、ChatGPT などのチャットで進める方法は、[docs/how-to-use-ai.md](docs/how-to-use-ai.md) を読んでください。
+- AI を使わずに進める場合は、[docs/00-start.md](docs/00-start.md) から読み始めます。
+
 ## 進め方
 
 各ステップは同じ流れです。

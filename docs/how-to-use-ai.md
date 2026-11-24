@@ -20,13 +20,13 @@ AI は、大きく 3 種類に分かれます。どれを使っても演習は�
 ## 2. 始める前の用意（共通）
 
 1. このリポジトリを用意し、[docs/00-start.md](00-start.md) の手順で、ボードと通信できることを確かめる。
-2. ファームウェアのソースを手元に置く。カードの「解説」「直し方」「ヒント」に出てくる `Firmware/worker.cpp` などは、[FlatSat-Geek](https://github.com/bellx2/FlatSat-Geek) のリポジトリにあります。このリポジトリと同じ階層に置くと、AI に場所を伝えやすくなります。
+2. ファームウェアのソースを手元に置く。カードの「解説」「直し方」「ヒント」に出てくる `Firmware/worker.cpp` などは、[StickSat](https://github.com/bellx2/StickSat) のリポジトリにあります。このリポジトリと同じ階層に置くと、AI に場所を伝えやすくなります。
 
        # このリポジトリの 1 つ上のフォルダへ移ってから、取得する
        cd ..
-       git clone https://github.com/bellx2/FlatSat-Geek.git
+       git clone https://github.com/bellx2/StickSat.git
 
-   置いたあとは、`../FlatSat-Geek/Firmware/worker.cpp` のように、このリポジトリから見た場所で AI に伝えます。
+   置いたあとは、`../StickSat/Firmware/worker.cpp` のように、このリポジトリから見た場所で AI に伝えます。
 3. 記録用のノート（紙でも、テキストファイルでもよい）を用意する。予想、観察、振り返りを書きます。
 
 ## 3. Codex（Codex CLI）で進める
@@ -36,7 +36,7 @@ Codex は、リポジトリの `AGENTS.md` を自動で読みます。特別な�
 1. インストールとログインは、OpenAI の公式の案内に従う。
 2. このリポジトリのフォルダで起動する。
 
-       cd FlatSat-Geek-Course
+       cd StickSat-Course
        codex
 
 3. 最初に、次のように頼む（§7 の「始めるとき」）。
@@ -44,7 +44,7 @@ Codex は、リポジトリの `AGENTS.md` を自動で読みます。特別な�
    > AGENTS.md に従って、家庭教師として振る舞ってください。今から stages/01-recon.md を始めます。
 
 4. コマンドの実行は、**実行の前に承認を求める設定**のまま使う。Codex がコマンドを実行しようとしたら、何を送るコマンドかを読んでから承認する。
-5. ファームウェアのコードを読ませるときは、場所を伝える（例: 「`../FlatSat-Geek/Firmware/worker.cpp` の `commandApidHandler` を一緒に読んでください」）。
+5. ファームウェアのコードを読ませるときは、場所を伝える（例: 「`../StickSat/Firmware/worker.cpp` の `commandApidHandler` を一緒に読んでください」）。
 
 ## 4. Claude Code で進める
 
@@ -53,7 +53,7 @@ Claude Code は、`AGENTS.md` ではなく `CLAUDE.md` を読みます。この�
 1. インストールとログインは、Anthropic の公式の案内に従う。
 2. このリポジトリのフォルダで起動する。
 
-       cd FlatSat-Geek-Course
+       cd StickSat-Course
        claude
 
 3. 最初に、次のように頼む（§7 の「始めるとき」）。
@@ -61,7 +61,7 @@ Claude Code は、`AGENTS.md` ではなく `CLAUDE.md` を読みます。この�
    > 家庭教師として教えてください。今から stages/01-recon.md を始めます。
 
 4. Claude Code は、コマンドを実行する前に許可を求めます。何を送るコマンドかを読んでから許可する。「今後は確認しない」のような、まとめて許可する選択肢は選ばない。
-5. ファームウェアのコードを読ませるときは、`/add-dir ../FlatSat-Geek` でフォルダを追加してから、場所を伝える。
+5. ファームウェアのコードを読ませるときは、`/add-dir ../StickSat` でフォルダを追加してから、場所を伝える。
 
 ## 5. ChatGPT・claude.ai などのチャットで進める
 
@@ -159,8 +159,8 @@ AI の種類にかかわらず、各ステップは次の順に進めます。`>
 
 カードの「直し方」は、パッチを書いて、**実機で攻撃が通らなくなること**を確かめるところまでが目標です。
 
-1. FlatSat-Geek のリポジトリで、AI と一緒に書いたパッチを当てる。変更は 1 か所ずつにし、差分を自分で読む。
-2. ファームウェアをビルドし、ボードに書き込む。ビルドに必要なもの（PlatformIO）とビルドの手順は、FlatSat-Geek の README（日本語版は `README_ja.md`）のビルドの説明にあります。
+1. StickSat のリポジトリで、AI と一緒に書いたパッチを当てる。変更は 1 か所ずつにし、差分を自分で読む。
+2. ファームウェアをビルドし、ボードに書き込む。ビルドに必要なもの（PlatformIO）とビルドの手順は、StickSat の README（日本語版は `README_ja.md`）のビルドの説明にあります。
 3. 同じ攻撃のスクリプトを実行し、拒否されること（または、ボードが落ちないこと）を確かめる。
 4. 終わったら、リリース版の UF2 を書き込み直して、元のファームウェアに戻す（[docs/00-start.md](00-start.md) の §1）。ほかのステップは、元のファームウェアを前提にしています。
 

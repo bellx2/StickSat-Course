@@ -6,7 +6,7 @@
 - ライセンス: クリエイティブ・コモンズ 表示 - 継承 4.0 国際（CC BY-SA 4.0）
   https://creativecommons.org/licenses/by-sa/4.0/deed.ja
 - 著作権者: Ryu Tanabe
-- 出典（Ryu Tanabe「FlatSat-Geek-Course」）を示せば、改変や再配布ができます（商用も可）。改変したものは同じ CC BY-SA 4.0 で公開してください。
+- 出典（Ryu Tanabe「StickSat-Course」）を示せば、改変や再配布ができます（商用も可）。改変したものは同じ CC BY-SA 4.0 で公開してください。
 - 入手先: <教材の入手先>
 
 ## 攻撃スクリプト・補助スクリプト（attacks/、tools/）
@@ -17,8 +17,8 @@
 
 ## ボードのファームウェア（書き込み済み）
 - ライセンス: GNU General Public License v2.0 以降（GPL-2.0-or-later）
-- ボードには FlatSat-Geek v1.2.1 を書き込んで出荷しています。FlatSat-Geek は Pwnsat/FlatSat（GPL-2.0-or-later）を RP2350-GEEK 向けに移植したものです。
-- ソースコードの入手先: https://github.com/bellx2/FlatSat-Geek （v1.2.1 は https://github.com/bellx2/FlatSat-Geek/releases/tag/v1.2.1）
+- ボードには StickSat v1.2.1 を書き込んで出荷しています。StickSat は Pwnsat/FlatSat（GPL-2.0-or-later）を RP2350-GEEK 向けに移植したものです。
+- ソースコードの入手先: https://github.com/bellx2/StickSat （v1.2.1 は https://github.com/bellx2/StickSat/releases/tag/v1.2.1）
 - 元のプロジェクト: https://github.com/Pwnsat/FlatSat
 
 ## その他

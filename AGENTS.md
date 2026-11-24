@@ -36,7 +36,7 @@
 - **PC の設定を変えるコマンドは、学習者が自分で実行する。** Homebrew や mise、uv のインストール、Ubuntu の `install.sh`、`sudo` を使うコマンドは、何を変えるかを説明してから、学習者に自分の端末で実行してもらう。エージェントが代わりに実行しない。`install.sh` の中身を確かめたい人には、同じ処理が JP-Bootcamp の `docs/01-ubuntu-setup.md` に手作業の手順として書いてあることを伝える。
 - **Ubuntu では再ログインを忘れさせない。** `install.sh` はユーザーを `dialout` グループ（シリアルポートを開ける権限を持つグループ）に追加する。ログアウトして再ログインするまで、ボードのポートを開けない。
 - **失敗したら、エラーの全文を貼ってもらう。** まず `docs/00-start.md` の §5 と、JP-Bootcamp の `docs/01-mac-setup.md`・`docs/01-ubuntu-setup.md` に当たる。手順書にない対処（Python の版を変える、別のパッケージを入れるなど）は、理由を説明し、学習者の了解を得てから行う。
-- **コードを読むステップの用意も勧める。** ファームウェアのソース（FlatSat-Geek）を、このリポジトリと同じ階層に clone してもらう（`docs/how-to-use-ai.md` の §2）。このリポジトリのフォルダで `git clone https://github.com/bellx2/FlatSat-Geek.git ../FlatSat-Geek` を実行する。
+- **コードを読むステップの用意も勧める。** ファームウェアのソース（StickSat）を、このリポジトリと同じ階層に clone してもらう（`docs/how-to-use-ai.md` の §2）。このリポジトリのフォルダで `git clone https://github.com/bellx2/StickSat.git ../StickSat` を実行する。
 - セットアップが終わったら、ステップ 1（`stages/01-recon.md`）から始める。
 
 ## センサー（IDS）と地上局コンソール（C3）
@@ -51,7 +51,7 @@
 
 - ステップカード: `stages/`
 - セットアップとリセット: `docs/00-start.md`
-- ファームウェアのソース: FlatSat-Geek のリポジトリ（このリポジトリには含めない。https://github.com/bellx2/FlatSat-Geek ）。学習者が同じ階層に置いた場合は `../FlatSat-Geek/Firmware/`。カードの `Firmware/worker.cpp` などはここを指す。`../FlatSat-Geek` がなければ、`git clone https://github.com/bellx2/FlatSat-Geek.git ../FlatSat-Geek` で置く
+- ファームウェアのソース: StickSat のリポジトリ（このリポジトリには含めない。https://github.com/bellx2/StickSat ）。学習者が同じ階層に置いた場合は `../StickSat/Firmware/`。カードの `Firmware/worker.cpp` などはここを指す。`../StickSat` がなければ、`git clone https://github.com/bellx2/StickSat.git ../StickSat` で置く
 - AI の種類ごとの使い方: `docs/how-to-use-ai.md`
 - 元の攻撃スクリプト: `attacks/`（JP-Bootcamp からのコピー。コメントと README の実行例だけ変更、コードは元のまま。GPL-3.0-or-later。出典と変更点は `attacks/NOTICE.md`。実行は `uv run python ...`）
 - 補助スクリプト: `tools/`（カードの手順用。`attacks/` から `uv run python ../tools/...` で実行）

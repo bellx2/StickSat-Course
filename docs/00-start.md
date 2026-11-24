@@ -2,8 +2,8 @@
 
 ## 1. ボードを用意する
 
-- FlatSat-Geek（書き込み済みのボード。[BOOTH で頒布](https://bellx2.booth.pm/items/9193868)）をそのまま使う。
-- 自分で書き込む場合は、[FlatSat-Geek のリリース](https://github.com/bellx2/FlatSat-Geek/releases) の UF2（ボードに書き込むファームウェアのファイル）を、BOOT ボタンを押しながら USB 接続して現れるドライブにコピーする。
+- StickSat（書き込み済みのボード。[BOOTH で頒布](https://bellx2.booth.pm/items/9193868)）をそのまま使う。
+- 自分で書き込む場合は、[StickSat のリリース](https://github.com/bellx2/StickSat/releases) の UF2（ボードに書き込むファームウェアのファイル）を、BOOT ボタンを押しながら USB 接続して現れるドライブにコピーする。
   - ステップ 6 で使う位置の上書き命令（`GPS_OVERRIDE`）は、RP2350-GEEK 向けのビルドに含まれている。
   - ステップ 9 でスコアボードの `AES CFG` が点くのは、v1.2.1 以降。それより前のバージョンでは点かない（攻撃そのものは成立する）。
 
@@ -13,7 +13,7 @@
 
 - このリポジトリ: 攻撃スクリプト（`attacks/`）。Python の環境は [uv](https://docs.astral.sh/uv/) で作る。
 - [JP-Bootcamp](https://github.com/bellx2/JP-Bootcamp): センサー（Space IDS）。
-- [FlatSat-Geek](https://github.com/bellx2/FlatSat-Geek): ファームウェアのソース。コードを読むステップで使う。
+- [StickSat](https://github.com/bellx2/StickSat): ファームウェアのソース。コードを読むステップで使う。
 
 センサーがなくても、ボード単体で演習を進められます。その場合は JP-Bootcamp の用意を飛ばし、§2 の「攻撃スクリプトの環境（uv）」と §6 を読んでください。
 
@@ -22,15 +22,15 @@
 使うリポジトリは、1 つの作業用フォルダの中に**並べて**置きます。手順書と AI への指示（`AGENTS.md`）は、この並びを前提に `../JP-Bootcamp` のような場所で書いてあります。
 
     作業用フォルダ/
-      FlatSat-Geek-Course/   このリポジトリ
+      StickSat-Course/   このリポジトリ
       JP-Bootcamp/           センサー（使わないなら要らない）
-      FlatSat-Geek/          ファームウェアのソース（コードを読むステップで使う）
+      StickSat/          ファームウェアのソース（コードを読むステップで使う）
 
 作業用フォルダで、次を実行します。
 
-    git clone https://github.com/bellx2/FlatSat-Geek-Course.git
+    git clone https://github.com/bellx2/StickSat-Course.git
     git clone https://github.com/bellx2/JP-Bootcamp.git
-    git clone https://github.com/bellx2/FlatSat-Geek.git
+    git clone https://github.com/bellx2/StickSat.git
 
 - センサーを使わない場合は、2 行目（JP-Bootcamp）を飛ばしてよい。
 - すでにこのリポジトリだけを取得している場合は、このリポジトリのフォルダで `git clone https://github.com/bellx2/JP-Bootcamp.git ../JP-Bootcamp` のように、置き場所を `../` で指定して取得する。
@@ -108,7 +108,7 @@ JP-Bootcamp のフォルダで、次を実行します。
 
 別のターミナルで、このリポジトリの `attacks/` に移動します。
 
-    cd FlatSat-Geek-Course/attacks
+    cd StickSat-Course/attacks
 
 - 各ステップで `attacks/` のスクリプトを実行するときは、このターミナルを使う。
 - スクリプトは `uv run python ...` で実行する。`uv run` が §2 で作った環境を自動で使う。
@@ -187,4 +187,4 @@ USB ケーブルを抜き、3 秒待って挿し直します。約 8 秒で戻�
 - そのため、振り返りでは、センサーについて分かったことを「AI が言っただけのこと」（または「カードに書いてあっただけのこと」）の欄に書く。「自分で確認できたこと」には入れない。
 - あとからセンサーを用意した場合は、ステップ 6 と 9 だけでも、センサーありでやり直すとよい。
 
-出典: JP-Bootcamp の `docs/01-mac-setup.md`、`docs/01-ubuntu-setup.md`、`docs/04-attacks.md`、FlatSat-Geek のファームウェア。
+出典: JP-Bootcamp の `docs/01-mac-setup.md`、`docs/01-ubuntu-setup.md`、`docs/04-attacks.md`、StickSat のファームウェア。

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.5.0 - 2026-11-25
+
+### 変更
+
+- ボードとファームウェアの名称を FlatSat-Geek から StickSat に、この演習の名称を FlatSat-Geek Course から StickSat Course に変えた。リポジトリも `bellx2/StickSat` と `bellx2/StickSat-Course` に改名するため、clone の URL と、並べて置くフォルダ名（`../StickSat` など）も書き換えた。元のプロジェクト（Pwnsat/FlatSat）の名前と、`attacks/` のコード中の `FlatSat` は変えていない。
+- `README.md` の「元のプロジェクト」に、旧名が FlatSat-Geek であることを書いた。旧名で探す人が同じものだと分かるようにするため。
+- チラシ（`print/`）の QR コード 2 つを新しい URL で作り直し、`flyer.pdf` を出力し直した。
+- `pyproject.toml` のプロジェクト名を `sticksat-course` にした。
+
 ## 0.4.7 - 2026-11-24
 
 ### 追加

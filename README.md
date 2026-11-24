@@ -1,6 +1,6 @@
-# FlatSat-Geek Course
+# StickSat Course
 
-USB でつなぐ衛星セキュリティ演習ボード **FlatSat-Geek**（RP2350-GEEK、画面付き、無線なし）で学ぶ、初心者向けの演習です。
+USB でつなぐ衛星セキュリティ演習ボード **StickSat**（RP2350-GEEK、画面付き、無線なし）で学ぶ、初心者向けの演習です。
 
 ## この演習でやること
 
@@ -11,15 +11,15 @@ USB でつなぐ衛星セキュリティ演習ボード **FlatSat-Geek**（RP235
 
 このリポジトリを取得し、**そのフォルダで** AI アシスタントを起動します。
 
-    git clone https://github.com/bellx2/FlatSat-Geek-Course.git
-    cd FlatSat-Geek-Course
+    git clone https://github.com/bellx2/StickSat-Course.git
+    cd StickSat-Course
     claude        # Claude Code の場合。Codex なら codex
 
 起動したら、次のように頼みます。
 
 > 初めて使います。セットアップから手伝ってください。
 
-- AI は、PC の OS、ボードが手元にあるか、センサー（IDS）を使うかを尋ねてから、[docs/00-start.md](docs/00-start.md) の順に 1 手順ずつ進めます。ほかに使うリポジトリ（JP-Bootcamp、FlatSat-Geek）の取得も、その中で案内します。
+- AI は、PC の OS、ボードが手元にあるか、センサー（IDS）を使うかを尋ねてから、[docs/00-start.md](docs/00-start.md) の順に 1 手順ずつ進めます。ほかに使うリポジトリ（JP-Bootcamp、StickSat）の取得も、その中で案内します。
 - 必ずこのフォルダで起動してください。AI は起動したフォルダの `AGENTS.md`（Claude Code は `CLAUDE.md`）を読み、家庭教師としての振る舞い方を知ります。別のフォルダで起動して URL を渡すだけでは、この指示が読み込まれないことがあります。
 - Claude Code や Codex のインストール、ChatGPT などのチャットで進める方法は、[docs/how-to-use-ai.md](docs/how-to-use-ai.md) を読んでください。
 - AI を使わずに進める場合は、[docs/00-start.md](docs/00-start.md) から読み始めます。
@@ -56,7 +56,7 @@ AI アシスタントを使うことを前提にしています。Codex・Claude
 
 ## 用意するもの
 
-- FlatSat-Geek（書き込み済みのボード。[BOOTH で頒布](https://bellx2.booth.pm/items/9193868)。または RP2350-GEEK に [FlatSat-Geek](https://github.com/bellx2/FlatSat-Geek) の UF2 を書き込んだもの）
+- StickSat（書き込み済みのボード。[BOOTH で頒布](https://bellx2.booth.pm/items/9193868)。または RP2350-GEEK に [StickSat](https://github.com/bellx2/StickSat) の UF2 を書き込んだもの）
 - PC（Python 3 と [uv](https://docs.astral.sh/uv/)）
 - JP-Bootcamp（Space IDS に使う。[docs/00-start.md](docs/00-start.md) を参照）。なくてもボード単体で進められる（アラートの観察だけできなくなる。同 §6）
 
@@ -73,7 +73,7 @@ AI アシスタントを使うことを前提にしています。Codex・Claude
 | [Pwnsat/FlatSat](https://github.com/Pwnsat/FlatSat)（astrobyte / Cromulence / Hack-A-Sat） | GPL-2.0-or-later | 元の脆弱な衛星模擬機・攻撃スクリプト |
 | [r0r0x-xx/JP-Bootcamp](https://github.com/r0r0x-xx/JP-Bootcamp) | `firmware/` は GPL-2.0-or-later、`c3/` は MIT（一部 GPL-3.0）、その他は GPL-3.0-or-later | 2 日間の講座・攻撃スクリプト・Space IDS |
 | [bellx2/JP-Bootcamp](https://github.com/bellx2/JP-Bootcamp) | 上と同じ | 上の日本語化 fork（README とドキュメントのみ翻訳） |
-| [bellx2/FlatSat-Geek](https://github.com/bellx2/FlatSat-Geek) | GPL-2.0-or-later | RP2350-GEEK 向けファームウェア |
+| [bellx2/StickSat](https://github.com/bellx2/StickSat) | GPL-2.0-or-later | RP2350-GEEK 向けファームウェア（旧名 FlatSat-Geek） |
 
 ## ライセンス
 

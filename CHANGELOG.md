@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.4.4 - 2026-11-24
+
+### 変更
+
+- `docs/00-start.md` §2 に「リポジトリを取得する」を足した。このリポジトリ・JP-Bootcamp・FlatSat-Geek を 1 つの作業用フォルダに並べる配置と、3 つの `git clone` を書いた。手順書と `AGENTS.md` が `../JP-Bootcamp` のような相対パスを前提にしているのに、その配置で取得する手順がなかったため。macOS と Ubuntu の手順から `git clone` を外し、この節にまとめた。
+- `AGENTS.md` の参照先で、FlatSat-Geek と JP-Bootcamp に URL と、相対パスにないときの `git clone` のコマンドを書いた。AI が `../FlatSat-Geek` などを見つけられないときに、取得の方法が分かるようにするため。
+
 ## 0.4.3 - 2026-11-24
 
 ### 変更

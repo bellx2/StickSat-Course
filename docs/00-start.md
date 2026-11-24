@@ -9,20 +9,40 @@
 
 ## 2. PC を用意する
 
-使うものは 2 つです。
+使うものは 3 つです。
 
 - このリポジトリ: 攻撃スクリプト（`attacks/`）。Python の環境は [uv](https://docs.astral.sh/uv/) で作る。
-- JP-Bootcamp: センサー（Space IDS）。
+- [JP-Bootcamp](https://github.com/bellx2/JP-Bootcamp): センサー（Space IDS）。
+- [FlatSat-Geek](https://github.com/bellx2/FlatSat-Geek): ファームウェアのソース。コードを読むステップで使う。
 
 センサーがなくても、ボード単体で演習を進められます。その場合は JP-Bootcamp の用意を飛ばし、§2 の「攻撃スクリプトの環境（uv）」と §6 を読んでください。
 
+### リポジトリを取得する
+
+使うリポジトリは、1 つの作業用フォルダの中に**並べて**置きます。手順書と AI への指示（`AGENTS.md`）は、この並びを前提に `../JP-Bootcamp` のような場所で書いてあります。
+
+    作業用フォルダ/
+      FlatSat-Geek-Course/   このリポジトリ
+      JP-Bootcamp/           センサー（使わないなら要らない）
+      FlatSat-Geek/          ファームウェアのソース（コードを読むステップで使う）
+
+作業用フォルダで、次を実行します。
+
+    git clone https://github.com/bellx2/FlatSat-Geek-Course.git
+    git clone https://github.com/bellx2/JP-Bootcamp.git
+    git clone https://github.com/bellx2/FlatSat-Geek.git
+
+- センサーを使わない場合は、2 行目（JP-Bootcamp）を飛ばしてよい。
+- すでにこのリポジトリだけを取得している場合は、このリポジトリのフォルダで `git clone https://github.com/bellx2/JP-Bootcamp.git ../JP-Bootcamp` のように、置き場所を `../` で指定して取得する。
+
+### JP-Bootcamp の環境を作る
+
 まず JP-Bootcamp を用意します。詳しい手順と、つまずいたときの説明は、JP-Bootcamp の `docs/01-mac-setup.md` と `docs/01-ubuntu-setup.md` にあります。
 
-### macOS
+#### macOS
 
-Homebrew と mise（Python などの開発ツールの版をそろえる道具）が入っていて、シェルで mise が有効になっている場合は、次を実行します。
+Homebrew と mise（Python などの開発ツールの版をそろえる道具）が入っていて、シェルで mise が有効になっている場合は、作業用フォルダで次を実行します。
 
-    git clone https://github.com/bellx2/JP-Bootcamp.git
     cd JP-Bootcamp
     mise trust && mise install
     uv pip install -r requirements.txt
@@ -30,9 +50,10 @@ Homebrew と mise（Python などの開発ツールの版をそろえる道具�
 - 入っていない場合は、JP-Bootcamp の `docs/01-mac-setup.md` の §1〜§2 から始める。
 - macOS では、シリアルポートを開くための追加の設定は要らない。
 
-### Ubuntu
+#### Ubuntu
 
-    git clone https://github.com/bellx2/JP-Bootcamp.git
+作業用フォルダで、次を実行します。
+
     cd JP-Bootcamp
     ./install.sh
 

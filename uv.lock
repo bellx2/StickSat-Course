@@ -4,7 +4,7 @@ requires-python = ">=3.10"
 
 [[package]]
 name = "flatsat-geek-course"
-version = "0.4.6"
+version = "0.4.7"
 source = { virtual = "." }
 dependencies = [
     { name = "pycryptodome" },

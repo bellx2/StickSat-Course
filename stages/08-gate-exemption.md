@@ -1,4 +1,4 @@
-# ステップ 8: ゲートの抜け道
+# ステップ 8: 除外された命令の悪用
 
 - **元の攻撃**: `attacks/09_gate_exemption_chain/`（演習 2.8）
 - **所要時間の目安**: 25〜35 分
@@ -41,7 +41,7 @@
        FLATSAT_HOST=1 uv run python ../tools/gs_mode_on.py
 
    画面に `GS ON` が出て、`GS AUTH` は出ていないことを確かめる（ゲートは有効、セッションはない）。
-3. ゲートの抜け道を試す。
+3. ゲートの除外を悪用する攻撃を試す。
 
        FLATSAT_HOST=1 uv run python 09_gate_exemption_chain/09_gate_exemption_chain_usb.py
 

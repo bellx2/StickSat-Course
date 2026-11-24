@@ -27,7 +27,7 @@
 ### A. 用意されたスクリプトで試す
 
 1. このステップを始める前に、ボードをリセットする（[docs/00-start.md](../docs/00-start.md)）。
-   ステップ 1（偵察）のあとにリセットしていないと、USB デバッグがオンのまま残り、正しい値でも `FLASH WINDOW LOCKED` と拒否される。
+   ステップ 1（命令の洗い出し）のあとにリセットしていないと、USB デバッグがオンのまま残り、正しい値でも `FLASH WINDOW LOCKED` と拒否される。
 2. このリポジトリの `attacks/` で、次を実行する（センサー経由）。読み出した中身を `flash.bin` というファイルに保存する。
 
        FLATSAT_HOST=1 uv run python 08_flash_read_dump/08_flash_read_dump_usb.py --out flash.bin

@@ -56,7 +56,7 @@ AI アシスタントを使うことを前提にしています。Codex・Claude
 
 ## 用意するもの
 
-- FlatSat-Geek（書き込み済みのボード。または RP2350-GEEK に [FlatSat-Geek](https://github.com/bellx2/FlatSat-Geek) の UF2 を書き込んだもの）
+- FlatSat-Geek（書き込み済みのボード。[BOOTH で頒布](https://bellx2.booth.pm/items/9193868)。または RP2350-GEEK に [FlatSat-Geek](https://github.com/bellx2/FlatSat-Geek) の UF2 を書き込んだもの）
 - PC（Python 3 と [uv](https://docs.astral.sh/uv/)）
 - JP-Bootcamp（Space IDS に使う。[docs/00-start.md](docs/00-start.md) を参照）。なくてもボード単体で進められる（アラートの観察だけできなくなる。同 §6）
 

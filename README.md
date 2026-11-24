@@ -19,7 +19,7 @@ USB でつなぐ衛星セキュリティ演習ボード **FlatSat-Geek**（RP235
 4. 観察する（ボードの返事と、画面の変化を見る）
 5. 解説を読んで、**直し方**を考える
 
-AI アシスタントを使うことを前提にしています。使い方は [docs/how-to-use-ai.md](docs/how-to-use-ai.md) を読んでください。
+AI アシスタントを使うことを前提にしています。Codex・Claude Code・ChatGPT などの種類ごとの使い方は [docs/how-to-use-ai.md](docs/how-to-use-ai.md) を読んでください。
 
 ## ステップ
 
@@ -66,7 +66,7 @@ AI アシスタントを使うことを前提にしています。使い方は [
 
 | 対象 | ライセンス |
 |---|---|
-| 演習の文章（`stages/`、`docs/`、`README.md`、`AGENTS.md`） | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ja) |
+| 演習の文章（`stages/`、`docs/`、`README.md`、`AGENTS.md`、`CLAUDE.md`） | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ja) |
 | 攻撃スクリプト（`attacks/`） | GPL-3.0-or-later（JP-Bootcamp からの同梱。[attacks/NOTICE.md](attacks/NOTICE.md)） |
 | 補助スクリプト（`tools/`） | GPL-3.0-or-later（`attacks/lib` を使うため） |
 

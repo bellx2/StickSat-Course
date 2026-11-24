@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.4.1 - 2026-11-24
+
+### 追加
+
+- `docs/how-to-use-ai.md` に、AI の種類ごとの進め方を書いた（Codex、Claude Code、ChatGPT・claude.ai などのチャット）。`AGENTS.md` の読ませ方が種類ごとに違い、チャットでは何をどう貼ればよいかが書かれていなかったため。あわせて、ファームウェアのソースの置き場所、エージェントにコマンドを実行させるときの注意、ステップの場面ごとの頼み方の例、直したファームウェアを実機で確かめる手順を書いた。
+- `CLAUDE.md` を足した。Claude Code は `AGENTS.md` ではなく `CLAUDE.md` を読むため、`AGENTS.md` を読み込む 1 行（`@AGENTS.md`）だけを置いた。
+- `AGENTS.md` の参照先に、ファームウェアのソースの場所と `docs/how-to-use-ai.md` を書いた。カードの `Firmware/worker.cpp` がこのリポジトリにないため。
+
 ## 0.4.0 - 2026-11-24
 
 ### 追加

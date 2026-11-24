@@ -2,7 +2,7 @@
 
 USB でつなぐ衛星セキュリティ演習ボード **FlatSat-Geek**（RP2350-GEEK、画面付き、無線なし）で学ぶ、初心者向けの演習です。
 
-> 状態: 作成中。ステップカード 01〜06 と手順書の本文はそろいましたが、実機での通しの確認はまだです。
+> 状態: 作成中。ステップカード 01〜10 と手順書の本文はそろいましたが、実機での通しの確認はまだです。
 
 ## この演習でやること
 
@@ -28,9 +28,13 @@ AI アシスタントを使うことを前提にしています。使い方は [
 | 1 | [偵察](stages/01-recon.md) | 使える命令を自分で調べる | `00` |
 | 2 | [リプレイ](stages/02-replay.md) | 暗号は「新しさ」を保証しない | `05` |
 | 3 | [認証のないコマンド](stages/03-command-injection.md) | 誰が送ったかを確認しない命令 | `02` |
-| 4 | [位置のなりすまし](stages/04-position-spoofing.md) | 位置情報が権限になる危うさ | `03` |
-| 5 | [地上局のなりすまし](stages/05-gs-auth-spoofing.md) | 弱い認証と、攻撃の連鎖 | `04` |
-| 6 | [暗号のダウングレード](stages/06-downgrade.md) | 1 バイトで暗号が切れる | `07` |
+| 4 | [取り消しのきかないコマンド](stages/04-resetc.md) | 気付けても止められない | `06` |
+| 5 | [フラッシュの読み出し](stages/05-flash-read.md) | 配られた値は鍵にならない | `08` |
+| 6 | [位置のなりすまし](stages/06-position-spoofing.md) | 位置情報が権限になる危うさ | `03` |
+| 7 | [地上局のなりすまし](stages/07-gs-auth-spoofing.md) | 弱い認証と、攻撃の連鎖 | `04` |
+| 8 | [ゲートの抜け道](stages/08-gate-exemption.md) | 例外の命令が入口になる | `09` |
+| 9 | [暗号のダウングレード](stages/09-downgrade.md) | 1 バイトで暗号が切れる | `07` |
+| 10 | [長さの引き算で落ちる](stages/10-underflow.md) | 整数のアンダーフロー | `01` |
 
 「元の攻撃」の番号は [attacks/](attacks/) のものです。`attacks/` は [JP-Bootcamp](https://github.com/bellx2/JP-Bootcamp) の `attacks/` を同梱し、コメントを日本語にしたものです（GPL-3.0-or-later、[attacks/NOTICE.md](attacks/NOTICE.md)）。
 [tools/](tools/) は、カードの手順で使う小さな補助スクリプトです（`attacks/lib` を使います）。

@@ -37,17 +37,7 @@
 2. ボードの画面で、現在の位置を**メモする**。
 3. ハンドシェイクを始められるかを確かめる。このリポジトリの `attacks/` で、次を実行する（センサー経由）。
 
-       FLATSAT_HOST=1 uv run python - <<'PY'
-       import sys; sys.path.insert(0, 'lib')
-       from flatsat import FlatSat, TC_GS_ACCESS
-       with FlatSat(verbose=False) as f:
-           for p in f.send(TC_GS_ACCESS, b"\x00", seq=1, listen=1.5):
-               body = f.plaintext(p)
-               if p.apid == 0x09:
-                   print("ERROR:", body.split(b"\x00", 1)[0].decode("ascii", "replace"))
-               elif p.apid == TC_GS_ACCESS:
-                   print("GS_ACCESS reply:", body.hex())
-       PY
+       FLATSAT_HOST=1 uv run python ../tools/gs_access_probe.py
 
    返事（`ERROR:` の文字列と、`GS_ACCESS reply:` の 16 進数）を**メモする**。
 4. 位置を札幌（地上局の位置）に書き換える。

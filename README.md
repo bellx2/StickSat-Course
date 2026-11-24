@@ -33,6 +33,7 @@ AI アシスタントを使うことを前提にしています。使い方は [
 | 6 | [暗号のダウングレード](stages/06-downgrade.md) | 1 バイトで暗号が切れる | `07` |
 
 「元の攻撃」の番号は [attacks/](attacks/) のものです。`attacks/` は [JP-Bootcamp](https://github.com/bellx2/JP-Bootcamp) の `attacks/` を同梱し、コメントを日本語にしたものです（GPL-3.0-or-later、[attacks/NOTICE.md](attacks/NOTICE.md)）。
+[tools/](tools/) は、カードの手順で使う小さな補助スクリプトです（`attacks/lib` を使います）。
 
 ## 用意するもの
 
@@ -58,4 +59,4 @@ AI アシスタントを使うことを前提にしています。使い方は [
 
 TODO: 決める前に NOTICE.md の確認事項を読むこと。
 
-`attacks/` は GPL-3.0-or-later です（[attacks/LICENSE](attacks/LICENSE)）。
+`attacks/` は GPL-3.0-or-later です（[attacks/LICENSE](attacks/LICENSE)）。`tools/` も `attacks/lib` を import するため、GPL-3.0-or-later として扱います。

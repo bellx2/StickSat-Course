@@ -25,6 +25,7 @@
 - 段階カード: `stages/`
 - セットアップとリセット: `docs/00-start.md`
 - 元の攻撃スクリプト: `attacks/`（JP-Bootcamp からのコピー。コメントと README の実行例だけ変更、コードは元のまま。GPL-3.0-or-later。出典と変更点は `attacks/NOTICE.md`。実行は `uv run python ...`）
+- 補助スクリプト: `tools/`（カードの手順用。`attacks/` から `uv run python ../tools/...` で実行）
 - センサー（Space IDS）: JP-Bootcamp の `ids/`（このリポジトリには含めない）
 
 ## 口調

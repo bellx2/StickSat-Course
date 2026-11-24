@@ -30,14 +30,7 @@
 1. 段階 4 の続きから始める。位置が札幌（地上局の範囲内）になっていることを、画面で確かめる。リセットした場合は、段階 4 の手順 4 で位置を札幌にする。
 2. 運用者の立場で、**地上局モードを有効にする**。このリポジトリの `attacks/` で、次を実行する（センサー経由）。
 
-       FLATSAT_HOST=1 uv run python - <<'PY'
-       import sys; sys.path.insert(0, 'lib')
-       from flatsat import FlatSat, TC_GS_MODE
-       with FlatSat(verbose=False) as f:
-           for p in f.send(TC_GS_MODE, b"\x01", seq=1, listen=1.5):
-               if p.apid == 0x09:
-                   print("ERROR:", f.plaintext(p).split(b"\x00", 1)[0].decode("ascii", "replace"))
-       PY
+       FLATSAT_HOST=1 uv run python ../tools/gs_mode_on.py
 
    `ERROR:` が出なければ成功。画面に `GS ON` が出る。
 3. 段階 3 のスクリプトで、スラスターの命令を送る。拒否されることを確かめ、`the board refused:` の後ろの理由を**メモする**。

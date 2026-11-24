@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>FlatSat-Geek 同梱チラシ</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #1a2230;
+    --sub: #55606e;
+    --line: #d5dbe3;
+    --accent: #0b5cad;
+    --accent-soft: #e8f1fb;
+    --warn: #b4441c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    font-size: 9.6pt;
+    line-height: 1.65;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 10mm 13mm 8mm;
+    display: flex;
+    flex-direction: column;
+    gap: 4mm;
+    overflow: hidden;
+  }
+  code, .mono { font-family: "SF Mono", Menlo, monospace; font-size: 8.4pt; }
+
+  /* ヘッダー */
+  header {
+    display: grid;
+    grid-template-columns: 1fr 54mm;
+    gap: 6mm;
+    align-items: center;
+    border-bottom: 1.2mm solid var(--accent);
+    padding-bottom: 3mm;
+  }
+  .eyebrow { color: var(--accent); font-weight: 700; font-size: 9pt; letter-spacing: .08em; }
+  h1 { font-size: 30pt; line-height: 1.1; letter-spacing: -.01em; margin: 1mm 0 1.5mm; }
+  .tagline { font-size: 12pt; font-weight: 700; }
+  .lead { margin-top: 2mm; color: var(--sub); font-size: 9.6pt; }
+  header img { width: 54mm; border-radius: 2mm; display: block; }
+
+  h2 {
+    font-size: 11.5pt;
+    border-left: 1.2mm solid var(--accent);
+    padding-left: 2.2mm;
+    margin-bottom: 2mm;
+    line-height: 1.3;
+  }
+
+  /* はじめかた */
+  .start { display: grid; grid-template-columns: 1fr 36mm; gap: 5mm; }
+  .steps { list-style: none; display: grid; gap: 2mm; counter-reset: s; }
+  .steps li {
+    display: grid; grid-template-columns: 7mm 1fr; gap: 2mm; align-items: start;
+    counter-increment: s;
+  }
+  .steps li::before {
+    content: counter(s);
+    width: 6.5mm; height: 6.5mm; border-radius: 50%;
+    background: var(--accent); color: #fff; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; font-size: 10pt;
+  }
+  .steps b { font-size: 10pt; }
+  .cmd {
+    background: #f3f5f8; border: .3mm solid var(--line); border-radius: 1.2mm;
+    padding: 1.2mm 2.5mm; margin-top: 1mm; white-space: pre; line-height: 1.5;
+  }
+  .say {
+    background: var(--accent-soft); border-radius: 1.2mm; padding: 1.2mm 2.5mm; margin-top: 1mm;
+    font-weight: 700;
+  }
+  .qr { text-align: center; font-size: 7.6pt; color: var(--sub); }
+  .qr img { width: 34mm; height: 34mm; display: block; margin: 0 auto 1mm; }
+  .qr b { color: var(--ink); font-size: 8.4pt; display: block; }
+
+  /* 2段組み */
+  .cols { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+  ul.plain { padding-left: 4mm; }
+  ul.plain li { margin-bottom: .3mm; }
+  .note { color: var(--sub); font-size: 8.8pt; display: block; margin-top: .5mm; }
+
+  /* ステップ一覧 */
+  table { width: 100%; border-collapse: collapse; font-size: 8.6pt; }
+  td { white-space: nowrap; }
+  th, td { padding: .7mm 1.5mm; border-bottom: .25mm solid var(--line); text-align: left; vertical-align: top; }
+  th { color: var(--sub); font-weight: 600; font-size: 7.8pt; }
+  td.n { width: 6mm; color: var(--accent); font-weight: 700; text-align: center; }
+  td.t { font-weight: 700; white-space: nowrap; }
+
+  .flow { display: flex; gap: 1mm; flex-wrap: nowrap; margin-top: 1.5mm; }
+  .flow span {
+    border: .3mm solid var(--accent); color: var(--accent); border-radius: 5mm;
+    padding: 0 1.8mm; font-size: 7.6pt; font-weight: 600;
+  }
+
+  .warn { border: .4mm solid var(--warn); border-radius: 1.5mm; padding: 2mm 3mm; font-size: 9pt; }
+  .warn h2 { border-color: var(--warn); }
+
+  /* ライセンス */
+  .license {
+    background: #f5f6f8; border-radius: 1.5mm; padding: 2.5mm 3mm;
+    font-size: 8pt; line-height: 1.55; color: #333c48;
+    display: grid; grid-template-columns: 1fr 22mm; gap: 3mm; align-items: center;
+  }
+  .license ul { padding-left: 3.5mm; }
+  .license h3 { font-size: 8.4pt; margin-bottom: .6mm; color: var(--ink); }
+  .license .qr img { width: 20mm; height: 20mm; }
+
+  footer {
+    margin-top: auto; display: flex; justify-content: space-between;
+    font-size: 7.6pt; color: var(--sub); border-top: .25mm solid var(--line); padding-top: 1.8mm;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="eyebrow">USB スティック型 衛星セキュリティ演習機</div>
+      <h1>FlatSat-Geek</h1>
+      <div class="tagline">衛星を攻撃して、なぜ通ったかを考え、直す。</div>
+      <p class="lead">
+        このボードには、わざと弱点を残した衛星の模擬機が入っています。<br>
+        USB でつなぐだけで動き、電波は出しません。<br>
+        無料の自習コースで、AI を家庭教師にして学べます。
+      </p>
+    </div>
+    <img src="device-photo.jpg" alt="画面にステータスを表示している FlatSat-Geek">
+  </header>
+
+  <section>
+    <h2>はじめかた</h2>
+    <div class="start">
+      <ol class="steps">
+        <li><div><b>PC の USB 端子に挿す</b><br>画面に「WAIT USB CONSOLE」と出れば正常です。
+          <span class="note">PC のプログラムがボードにつなぐと、衛星の状態の画面に切り替わります。</span></div></li>
+        <li><div><b>自習コースを取得し、そのフォルダで AI アシスタントを起動する</b>
+          <div class="cmd mono">git clone https://github.com/bellx2/FlatSat-Geek-Course.git
+cd FlatSat-Geek-Course
+claude        # Claude Code の場合。Codex なら codex</div></div></li>
+        <li><div><b>AI にこう頼む</b>
+          <div class="say">「初めて使います。セットアップから手伝ってください。」</div>
+          <span class="note">AI が質問しながら、1 手順ずつ案内します。<br>AI を使わない場合は <span class="mono">docs/00-start.md</span> を読みます。</span></div></li>
+      </ol>
+      <div class="qr">
+        <img src="qr-course.svg" alt="自習コースの QR コード">
+        <b>自習コース</b>
+        github.com/bellx2/<br>FlatSat-Geek-Course
+      </div>
+    </div>
+  </section>
+
+  <section class="cols">
+    <div>
+      <h2>10 のステップ</h2>
+      <table>
+        <tr><th></th><th>テーマ</th><th>ねらい</th></tr>
+        <tr><td class="n">1</td><td class="t">命令の洗い出し</td><td>使える命令を自分で調べる</td></tr>
+        <tr><td class="n">2</td><td class="t">リプレイ</td><td>暗号化しても、使い回しは防げない</td></tr>
+        <tr><td class="n">3</td><td class="t">認証のないコマンド</td><td>誰が送ったかを確認しない</td></tr>
+        <tr><td class="n">4</td><td class="t">取り消せないコマンド</td><td>気付けても止められない</td></tr>
+        <tr><td class="n">5</td><td class="t">フラッシュの読み出し</td><td>配られた値は鍵にならない</td></tr>
+        <tr><td class="n">6</td><td class="t">位置のなりすまし</td><td>位置情報が権限になる危うさ</td></tr>
+        <tr><td class="n">7</td><td class="t">地上局のなりすまし</td><td>弱い認証と、攻撃の連鎖</td></tr>
+        <tr><td class="n">8</td><td class="t">除外された命令の悪用</td><td>例外の命令が入口になる</td></tr>
+        <tr><td class="n">9</td><td class="t">暗号のダウングレード</td><td>1 バイトで暗号が切れる</td></tr>
+        <tr><td class="n">10</td><td class="t">長さ計算のアンダーフロー</td><td>短い入力でボードが落ちる</td></tr>
+      </table>
+      <div class="flow"><span>背景を読む</span><span>予想する</span><span>操作する</span><span>観察する</span><span>直し方を考える</span></div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:4mm;">
+      <div>
+        <h2>用意するもの</h2>
+        <ul class="plain">
+          <li>PC（macOS または Ubuntu）</li>
+          <li>USB-A 端子（なければ変換アダプタ）</li>
+          <li>Python 3 と uv（Python の管理ツール）</li>
+          <li>AI アシスタント（なくても進められます）</li>
+        </ul>
+      </div>
+      <div class="warn">
+        <h2>ご利用にあたって</h2>
+        <ul class="plain">
+          <li>攻撃してよいのは<b>自分のこのボードだけ</b>です。</li>
+          <li>学習・研究目的に限ります。<br>実在する衛星や機器には使えません。</li>
+          <li>攻撃は 1 つずつ。合間にリセットします。</li>
+          <li>演習内容についての<br>個別のご質問にはお答えしていません。<br>手順の更新は GitHub で行います。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="license">
+    <div>
+      <h3>ライセンスとソースコード</h3>
+      <ul>
+        <li>ファームウェア: FlatSat-Geek v1.2.1（GPL-2.0-or-later）。Pwnsat/FlatSat を RP2350-GEEK 向けに移植したものです。</li>
+        <li>ソースコード: <span class="mono">https://github.com/bellx2/FlatSat-Geek</span></li>
+        <li>自習コース: 文章は CC BY-SA 4.0、攻撃スクリプトは GPL-3.0-or-later です（詳しくは <span class="mono">docs/product-license.md</span>）。</li>
+        <li>価格はハードウェアと、教材の作成・サポートの対価です。ソフトウェアの利用・改変・再配布に、ライセンス以外の制限は付けません。</li>
+      </ul>
+    </div>
+    <div class="qr">
+      <img src="qr-firmware.svg" alt="ファームウェアのソースコードの QR コード">
+      ファームウェア
+    </div>
+  </section>
+
+  <footer>
+    <span>FlatSat-Geek ／ べるべる研究所</span>
+    <span>bellx2.booth.pm/items/9193868</span>
+  </footer>
+
+</div>
+</body>
+</html>

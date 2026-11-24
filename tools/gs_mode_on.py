@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""運用者の立場で、地上局モードを有効にする（段階 5 の手順 2）。
+"""運用者の立場で、地上局モードを有効にする（ステップ 5 の手順 2）。
 
 GS_MODE に 1 を送る。成功すると何も表示せず、ボードの画面に `GS ON` が出る。
 拒否されたときだけ `ERROR:` と理由を表示する。元に戻すには attacks/lib/reset_bench.py を使う。

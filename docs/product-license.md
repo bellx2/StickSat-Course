@@ -17,8 +17,8 @@
 
 ## ボードのファームウェア（書き込み済み）
 - ライセンス: GNU General Public License v2.0 以降（GPL-2.0-or-later）
-- ボードには StickSat v1.2.1 を書き込んで出荷しています。StickSat は Pwnsat/FlatSat（GPL-2.0-or-later）を RP2350-GEEK 向けに移植したものです。
-- ソースコードの入手先: https://github.com/bellx2/StickSat （v1.2.1 は https://github.com/bellx2/StickSat/releases/tag/v1.2.1）
+- ボードには StickSat を書き込んで出荷しています。StickSat は Pwnsat/FlatSat（GPL-2.0-or-later）を RP2350-GEEK 向けに移植したものです。
+- ソースコードの入手先: https://github.com/bellx2/StickSat 。書き込まれている版は、ボードの画面のシステム情報のページで確かめられます。各版のソースコードは https://github.com/bellx2/StickSat/releases にあります。
 - 元のプロジェクト: https://github.com/Pwnsat/FlatSat
 
 ## その他

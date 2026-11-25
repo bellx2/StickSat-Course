@@ -1,7 +1,7 @@
 # 攻撃スクリプト（attacks/）を動かすための Python 環境。uv で作る
 [project]
 name = "sticksat-course"
-version = "0.5.1"
+version = "0.5.2"
 license = "GPL-3.0-or-later"
 requires-python = ">=3.10"
 dependencies = [
